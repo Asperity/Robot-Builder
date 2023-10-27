@@ -10,10 +10,38 @@
 </head>
 <body>
     <h1>Robot-Builder</h1>
+    <img src="robot.png"
+    
+     class="robot"/>
+     <div class = "pDisplay"><button onclick="increasePower();">+</button> <p id = "power">asdasdasd</p> <button onclick="decreasePower();">-</button></div>
+
+     <div class = "pDisplay"><button onclick="increaseSpeed();">+</button> <p id = "speed">asdasdasd</p> <button onclick="decreaseSpeed();">-</button></div>
+
+     <div class = "pDisplay"><button onclick="increaseSI();">+</button> <p id = "si">asdasdasd</p> <button onclick="decreaseSI();">-</button></div>
+
+     <div class="space"></div>
+
     <label class="toggle">
         <input type="checkbox">
         <span class="slider"></span>
-        <p>Scanners</p>
+        <span class="labels" data-on="Defenses:ON" data-off="Defenses:OFF"></span>
     </label>
+    <div class="space"></div>
+
+    <label class="toggle">
+        <input type="checkbox">
+        <span class="slider"></span>
+        <span class="labels" data-on="Scanners:ON" data-off="Scanners:OFF"></span>
+    </label>
+    <div class="space"></div>
+
+    <div class="dropdown">
+        <button class="dropbtn">Power Source</button>
+        <div class="dropdown-content">
+          <a>Hydro</a>
+          <a>Nuclear</a>
+          <a>Solar</a>
+        </div>
+      </div>
 </body>
 </html>
