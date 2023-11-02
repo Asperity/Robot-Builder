@@ -127,6 +127,7 @@ h1
     padding: 16px;
     font-size: 16px;
     border: none;
+    width:160px;
   }
   
   .dropdown {
@@ -147,7 +148,9 @@ h1
     display: block;
   }
   
-  .dropdown-content a:hover {background-color: rgb(99, 99, 99);}
+  #hydro a:hover {background-color: rgb(11, 105, 117);}
+  #nuclear a:hover {background-color: rgb(49, 168, 19);}
+  #solar a:hover {background-color: rgb(36, 24, 197);}
   
   .dropdown:hover .dropdown-content {display: block;}
   
@@ -165,23 +168,41 @@ h1
     margin-bottom: 50px;
 }
 
+.dropdownButton
+{ 
+  width:160px;
+}
+
 #grid 
 {
   display: grid;
   grid-gap: 4px;
-  grid-template-columns: 10vw 10vw 40vw 30vw;
-  grid-template-rows: 10vw;
+  grid-template-columns: 20vw 10vw 40vw 30vw;
+  grid-template-rows: 20vw;
 
 }
 
-#robot
+#hydro
 {
-  background-color: red;
+  background-color: aqua;
 }
+
+#nuclear
+{
+  background-color: lawngreen;
+}
+
+#solar
+{
+  background-color: royalblue;
+}
+
 
 #dropdown
 {
   grid-column: span 2;
 }
+
+
 
 

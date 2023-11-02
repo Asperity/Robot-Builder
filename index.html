@@ -44,11 +44,12 @@
 
         <div class="cell" id="dropdown">
             <div class="dropdown">
-                <button class="dropbtn">Power Source</button>
+                <button class="dropbtn" id="powerSource">Power Source</button>
                 <div class="dropdown-content">
-                <a>Hydro</a>
-                <a>Nuclear</a>
-                <a>Solar</a>
+                    <button onclick="changePower(hydro);" class="dropdownButton" id="hydro"><a>Hydro</a></button>
+                    <button onclick="changePower(nuclear);" class="dropdownButton" id="nuclear"><a>Nuclear</a></button>
+                    <button onclick="changePower(solar);" class="dropdownButton" id="solar"><a>Solar</a></button>
+                </div>
             </div>
         </div>
     </div>

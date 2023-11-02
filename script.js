@@ -11,6 +11,7 @@ function initialize(){
     powerDisplay = document.getElementById("power");
     speedDisplay = document.getElementById("speed");
     siDisplay = document.getElementById("si");
+    showPower = document.getElementById("powerSource")
     display();
 }
 function increasePower(){
@@ -66,6 +67,81 @@ function decreaseSI(){
     display();
 }
 
+function changePower(power){
+    powerType = power;
+    if(powerType === hydro)
+    {
+        showPower.innerHTML = "Hydro";
+    }
+    if(powerType === nuclear)
+    {
+        showPower.innerHTML = "Nuclear";
+    }
+    if(powerType === solar)
+    {
+        showPower.innerHTML = "Solar";
+    }
+    updateValues();
+}
+
+function updateValues(){
+
+    if(powerType === hydro){
+        powerLevelCap = 8;
+        topSpeedCap = 12;
+        structuralIntegrityCap = 10;
+        if(powerLevel > powerLevelCap)
+        {
+            powerLevel = 8;
+        }
+        if(topSpeed>topSpeedCap)
+        {
+            topSpeed = 12;
+        }
+        if(structuralIntegrity>structuralIntegrityCap)
+        {
+            structuralIntegrity = 10;
+        }
+
+    }
+    if(powerType === nuclear){
+        powerLevelCap = 12;
+        topSpeedCap = 14;
+        structuralIntegrityCap = 4;
+        if(powerLevel>powerLevelCap)
+        {
+            powerLevel = 12;
+        }
+        if(topSpeed>topSpeedCap)
+        {
+            topSpeed = 14;
+        }
+        if(structuralIntegrity>structuralIntegrityCap)
+        {
+            structuralIntegrity = 4;
+        }
+
+    }
+    if(powerType === solar)
+    {
+        powerLevelCap = 10;
+        topSpeedCap = 10;
+        structuralIntegrityCap = 10;
+        if(powerLevel>powerLevelCap)
+        {
+            powerLevel = 10;
+        }
+        if(topSpeed>topSpeedCap)
+        {
+            topSpeed = 10;
+        }
+        if(structuralIntegrity>structuralIntegrityCap)
+        {
+            structuralIntegrity = 10;
+        }
+    }
+    display();
+}
 
 function display(){
     powerDisplay.innerHTML = "POWER LEVEL: "+powerLevel;
