@@ -20,7 +20,7 @@
 
         <div class="cell" id="slider">
             <label class="toggle">
-                <input type="checkbox">
+                <input type="checkbox" onclick="updateScanner()">
                 <span class="slider"></span>
                 <span class="labels" data-on="Defenses:ON" data-off="Defenses:OFF"></span>
             </label>
@@ -28,7 +28,7 @@
             <label class="toggle">
                 <input type="checkbox">
                 <span class="slider"></span>
-                <span class="labels" data-on="Scanners:ON" data-off="Scanners:OFF"></span>
+                <span class="labels" id="scannerSlider" data-on="Scanners:ON" data-off="Scanners:OFF"></span>
             </label>
         </div>
 
@@ -37,7 +37,7 @@
         </div>
 
         <div class="cell" id="robot">
-            <img src="robot.png"
+            <img id="robotImage" src="robot.png"
     
             class="robot"/>
         </div>
@@ -52,6 +52,11 @@
                 </div>
             </div>
         </div>
+
+        <div class="cell" id="robotButton">
+            <button onclick="updateImage();" id="imageButton">Build Robot</button>
+        </div>
     </div>
+    
 </body>
 </html>

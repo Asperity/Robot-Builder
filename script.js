@@ -11,7 +11,9 @@ function initialize(){
     powerDisplay = document.getElementById("power");
     speedDisplay = document.getElementById("speed");
     siDisplay = document.getElementById("si");
-    showPower = document.getElementById("powerSource")
+    showPower = document.getElementById("powerSource");
+    showImage = document.getElementById("robotImage");
+    getScanner = document.getElementById("scannerSlider");
     display();
 }
 function increasePower(){
@@ -141,6 +143,30 @@ function updateValues(){
         }
     }
     display();
+}
+
+function updateScanner()
+{
+    if(getScanner.checked == true)
+    {
+        scanners = true;
+    }
+    else
+    {
+        scanners= false;
+    }
+}
+
+function updateImage()
+{
+    if(powerType == hydro)
+    {
+        showImage.src = "hydro-robot.webp";
+    }
+    else if((powerType == solar) && (scanners))
+    {
+        showImage.src = "solar-panel.webp";
+    }
 }
 
 function display(){
