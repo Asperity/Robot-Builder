@@ -6,7 +6,7 @@ function initialize(){
     structuralIntegrity = 0;
     structuralIntegrityCap = 10;
     scanners = false;
-    defensiveSystem = false;
+    defenses = false;
     powerType = "none";
     powerDisplay = document.getElementById("power");
     speedDisplay = document.getElementById("speed");
@@ -14,59 +14,103 @@ function initialize(){
     showPower = document.getElementById("powerSource");
     showImage = document.getElementById("robotImage");
     getScanner = document.getElementById("scannerSlider");
+    getDefenses = document.getElementById("defenseSlider");
     display();
 }
 function increasePower(){
-    if(powerLevel<powerLevelCap)
+    if(powerType == "none")
     {
-        powerLevel++;
+        alert("No power type selected");
     }
-    display();
+    else
+    {
+        if(powerLevel<powerLevelCap)
+        {
+            powerLevel++;
+        }
+        display();
+    }
 }
 
 
 function decreasePower(){
-    if(powerLevel>0)
+    if(powerType == "none")
     {
-        powerLevel--;
+        alert("No power type selected");
     }
-    display();
+    else
+    {
+        if(powerLevel>0)
+        {
+            powerLevel--;
+        }
+        display();
+    }
 }
 
 
 function increaseSpeed(){
-    if(topSpeed<topSpeedCap)
+    if(powerType == "none")
     {
-        topSpeed++;
+        alert("No power type selected");
     }
-    display();
+    else
+    {
+        if(topSpeed<topSpeedCap)
+        {
+            topSpeed++;
+        }
+        display();
+    }
 }
 
 
 function decreaseSpeed(){
-    if(topSpeed>0)
+    if(powerType == "none")
     {
-        topSpeed--;
+        alert("No power type selected");
     }
-    display();
+    else
+    {
+        if(topSpeed>0)
+        {
+            topSpeed--;
+        }
+        display();
+    }
 }
 
 
 function increaseSI(){
-    if(structuralIntegrity<structuralIntegrityCap)
+    if(powerType == "none")
     {
-        structuralIntegrity++;
+        alert("No power type selected");
     }
-    display();
+    else
+    {
+        if(structuralIntegrity<structuralIntegrityCap)
+        {
+            structuralIntegrity++;
+        }
+        display();
+    }
 }
 
 
 function decreaseSI(){
-    if(structuralIntegrity>0)
+    if(powerType == "none")
     {
-        structuralIntegrity--;
+        alert("No power type selected");
+        
     }
-    display();
+    else
+    {
+        if(structuralIntegrity>0)
+        {
+            structuralIntegrity--;
+        }   
+        display();
+    }
 }
 
 function changePower(power){
@@ -157,15 +201,58 @@ function updateScanner()
     }
 }
 
+function updateDefenses()
+{
+    if(getDefenses.checked == true)
+    {
+        defenses = true;
+    }
+    else
+    {
+        defenses = false;
+    }
+}
+
 function updateImage()
 {
     if(powerType == hydro)
     {
-        showImage.src = "hydro-robot.webp";
+        if(defenses)
+        {
+            showImage.src = "hydro-robot.webp";
+        }
+        else if(scanners)
+        {
+            showImage.src = "robot.png";
+        }
+        else
+        {
+            showImage.src = "water-turbine.jpg";
+        }
     }
-    else if((powerType == solar) && (scanners))
+    else if(powerType == solar && scanners)
     {
         showImage.src = "solar-panel.webp";
+        if(defenses)
+        {
+            showImage.src = "solarDrone.webp";
+        }
+    }
+    else if(powerType == solar)
+    {
+        showImage.src = "scrap-metal.jpg";
+    }
+    else if(powerType == nuclear && defenses)
+    {
+        showImage.src = "missle.png";
+        if(scanners)
+        {
+            showImage.src = "aimMissle.jpg";   
+        }
+    }
+    else if(powerType == nuclear && !defenses)
+    {
+        showImage.src = "scrap-metal.jpg";
     }
 }
 
